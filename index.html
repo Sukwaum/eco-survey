@@ -1,3 +1,89 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Экологический опросник</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f4f4;
+            margin: 40px;
+            text-align: center;
+        }
+        .container {
+            max-width: 700px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            margin-bottom: 30px;
+        }
+        .question {
+            text-align: left;
+            margin-bottom: 20px;
+        }
+        button {
+            padding: 12px 25px;
+            background-color: #2e7d32;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        button:hover {
+            background-color: #1b5e20;
+        }
+        canvas {
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Экологический опросник</h1>
+        <form id="poll">
+            <div class="question">1. Устраивает ли Вас уровень шума в районе проживания?<br>
+                <label><input type="radio" name="q1" value="yes"> Да</label>
+                <label><input type="radio" name="q1" value="no"> Нет</label>
+            </div>
+            <div class="question">2. Устраивает ли Вас качество питьевой воды?<br>
+                <label><input type="radio" name="q2" value="yes"> Да</label>
+                <label><input type="radio" name="q2" value="no"> Нет</label>
+            </div>
+            <div class="question">3. Устраивает ли Вас качество речных вод в пределах г. Воронеж?<br>
+                <label><input type="radio" name="q3" value="yes"> Да</label>
+                <label><input type="radio" name="q3" value="no"> Нет</label>
+            </div>
+            <div class="question">4. Устраивает ли Вас чистота улиц г. Воронеж?<br>
+                <label><input type="radio" name="q4" value="yes"> Да</label>
+                <label><input type="radio" name="q4" value="no"> Нет</label>
+            </div>
+            <div class="question">5. Достаточно ли зеленых насаждений и скверов в г. Воронеж?<br>
+                <label><input type="radio" name="q5" value="yes"> Да</label>
+                <label><input type="radio" name="q5" value="no"> Нет</label>
+            </div>
+            <div class="question">6. Знаете ли Вы какие-либо экологические программы, которые внедряют власти г. Воронеж для улучшения окружающей среды?<br>
+                <label><input type="radio" name="q6" value="yes"> Да</label>
+                <label><input type="radio" name="q6" value="no"> Нет</label>
+            </div>
+            <div class="question">7. Как Вы считаете, из СМИ города узнаете достоверную информацию об экологической ситуации в городе?<br>
+                <label><input type="radio" name="q7" value="yes"> Да</label>
+                <label><input type="radio" name="q7" value="no"> Нет</label>
+            </div>
+            <div class="question">8. Знаете ли Вы об экологических проблемах в городе?<br>
+                <label><input type="radio" name="q8" value="yes"> Да</label>
+                <label><input type="radio" name="q8" value="no"> Нет</label>
+            </div>
+            <div class="question">9. Как Вы считаете, охрана окружающей среды является общим делом?<br>
+                <label><input type="radio" name="q9" value="yes"> Да</label>
+                <label><input type="radio" name="q9" value="no"> Нет</label>
+            </div>
+            <div class="question">10. Приходилось ли Вам выбрасывать мусор на улице?<br>
+                <label><input type="radio" name="q10" value="yes"> Да</label>
 <label><input type="radio" name="q10" value="no"> Нет</label>
             </div>
             <div class="question">11. Готовы ли Вы участвовать в акциях по улучшению экологической ситуации в городе (уборка мусора, сбор макулатуры и т.д.)?<br>
@@ -74,4 +160,5 @@
     </script>
 </body>
 </html>
+
 
