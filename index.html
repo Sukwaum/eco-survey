@@ -121,11 +121,7 @@
             }
         }
     }
-
-    // Инициализация Firestore (если ты ещё не сделал это)
     const db = firebase.firestore();
-
-    // Добавляем документ в коллекцию
     db.collection("votes").add({
         yes: yes,
         no: no,
@@ -190,4 +186,5 @@
     </script>
 </body>
 </html>
+
 
