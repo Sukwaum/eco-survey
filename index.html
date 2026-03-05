@@ -1,1 +1,77 @@
+<label><input type="radio" name="q10" value="no"> Нет</label>
+            </div>
+            <div class="question">11. Готовы ли Вы участвовать в акциях по улучшению экологической ситуации в городе (уборка мусора, сбор макулатуры и т.д.)?<br>
+                <label><input type="radio" name="q11" value="yes"> Да</label>
+                <label><input type="radio" name="q11" value="no"> Нет</label>
+            </div>
+            <div class="question">12. Готовы ли Вы отказаться от общественного транспорта и пересесть на велосипед, чтобы сократить выброс вредных веществ в воздух?<br>
+                <label><input type="radio" name="q12" value="yes"> Да</label>
+                <label><input type="radio" name="q12" value="no"> Нет</label>
+            </div>
+            <div class="question">13. Готовы ли Вы принимать участие в озеленении г. Воронеж?<br>
+                <label><input type="radio" name="q13" value="yes"> Да</label>
+                <label><input type="radio" name="q13" value="no"> Нет</label>
+            </div>
+            <div class="question">14. Готовы ли Вы начать сортировать мусор с учетом его переработки (стекло, бумага, пластик, пищевые отходы) для дальнейшей переработки?<br>
+                <label><input type="radio" name="q14" value="yes"> Да</label>
+                <label><input type="radio" name="q14" value="no"> Нет</label>
+            </div>
+            <div class="question">15. Подкармливаете ли Вы птиц и животных зимой?<br>
+                <label><input type="radio" name="q15" value="yes"> Да</label>
+                <label><input type="radio" name="q15" value="no"> Нет</label>
+            </div>
+        </form>
+        <button onclick="submitPoll()">Отправить ответы</button>
+        <p id="result"></p>
+        <canvas id="resultsChart"></canvas>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        function submitPoll() {
+            let yesCount = 0;
+            let noCount = 0;
+            for (let i = 1; i <= 15; i++) {
+                let options = document.getElementsByName('q' + i);
+                for (let j = 0; j < options.length; j++) {
+                    if (options[j].checked) {
+                        if (options[j].value === 'yes') {
+                            yesCount++;
+                        } else {
+                            noCount++;
+                        }
+                    }
+                }
+            }
+            if (yesCount + noCount === 0) {
+                document.getElementById('result').innerText = 'Пожалуйста, ответьте на хотя бы один вопрос.';
+                return;
+            }
+            document.getElementById('result').innerText = 'Ваш ответ принят. Спасибо!';
+            const ctx = document.getElementById('resultsChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'pie',
+                data: {
+                    labels: ['Да', 'Нет'],
+                    datasets: [{
+                        data: [yesCount, noCount],
+                        backgroundColor: ['#4CAF50', '#F44336']
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                        },
+                        title: {
+                            display: true,
+                            text: 'Распределение ответов'
+                        }
+                    }
+                }
+            });
+        }
+    </script>
+</body>
+</html>
 
