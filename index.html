@@ -106,7 +106,38 @@
                 <label><input type="radio" name="q15" value="no"> Нет</label>
             </div>
         </form>
-        <button onclick="submitPoll()">Отправить ответы</button>
+        <button onclick="submitPoll(function sendVote() {
+    let yes = 0;
+    let no = 0;
+
+    // Собираем ответы из формы
+    let options = document.getElementsByName("vote");
+    for (let i = 0; i < options.length; i++) {
+        if (options[i].checked) {
+            if (options[i].value === "yes") {
+                yes++;
+            } else {
+                no++;
+            }
+        }
+    }
+
+    // Инициализация Firestore (если ты ещё не сделал это)
+    const db = firebase.firestore();
+
+    // Добавляем документ в коллекцию
+    db.collection("votes").add({
+        yes: yes,
+        no: no,
+        timestamp: firebase.firestore.FieldValue.serverTimestamp()
+    })
+    .then(() => {
+        document.getElementById("result").innerText = "Ваш ответ принят, спасибо!";
+    })
+    .catch((error) => {
+        console.error("Ошибка при отправке: ", error);
+    });
+})">Отправить ответы</button>
         <p id="result"></p>
         <canvas id="resultsChart"></canvas>
     </div>
@@ -159,3 +190,4 @@
     </script>
 </body>
 </html>
+
